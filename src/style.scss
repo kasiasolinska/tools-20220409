@@ -1,11 +1,6 @@
 $main-color: #689f38;
 $second-color: #f1f8e9;
-
-@mixin ellipsis() {
-  overflow: hidden;
-  white-space: nowrap;
-  text-overflow: ellipsis;
-}
+@import "./mixins.scss";
 
 html,
 body,
