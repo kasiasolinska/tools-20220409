@@ -1,30 +1,15 @@
+import { Author } from "./model/author";
+import { Post } from "./model/post";
+import { Comment } from "./model/comment";
+
 const apiUrl: string = 'http://jsonplaceholder.typicode.com';
 
 const postsUrl: string = apiUrl + "/posts";
 const commentsUrl: string = `${apiUrl}/comments`;
 const usersUrl:string = `${apiUrl}/users`;
 
-interface Author {
-    id: number;
-    name: string;
-    username:string;
-    email: string;
-}
 
-interface Post {
-    userId: number;
-    id: number;
-    title: string;
-    body: string;
-}
 
-interface Comment {
-    postId: number;
-    id: number;
-    name: string;
-    email: string;
-    body: string;
-}
 
 async function setAuthor(authorId: number) :Promise<void> {
     const userUrl = `${usersUrl}/${authorId}`;
