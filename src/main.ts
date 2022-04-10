@@ -1,4 +1,4 @@
-const apiUrl: string = 'http://jasonplaceholder.typicode.com';
+const apiUrl: string = 'http://jsonplaceholder.typicode.com';
 
 const postsUrl: string = apiUrl + "/posts";
 const commentsUrl: string = `${apiUrl}/comments`;
@@ -71,12 +71,11 @@ async function addListElement(post: Post) :Promise<void> {
     const listContainer = document.getElementById("list");
     listContainer.append(element);
 
-
+}
 
 
   document.addEventListener("DOMContentLoaded", ():void => {
     const content = document.querySelector("#content");
-  
     setTimeout(() :void => {
       getApiResponse(postsUrl)
         .then((posts :Post[]) => {
@@ -94,4 +93,4 @@ async function addListElement(post: Post) :Promise<void> {
     }, 2000);
 
   });
-}
+
