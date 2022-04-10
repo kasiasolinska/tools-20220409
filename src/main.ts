@@ -2,13 +2,34 @@ import { Author } from "./model/author";
 import { Post } from "./model/post";
 import { Comment } from "./model/comment";
 
-const apiUrl: string = 'http://jsonplaceholder.typicode.com';
 
-const postsUrl: string = apiUrl + "/posts";
+class Api implements DataProvider {
+  postsSuffix: string = 'posts';
+
+  constructor(public readonly apiUrl: string) {}
+
+  getPosts(): Promise<Post[]> {
+    throw new Error('Method not implemented.');
+  }
+
+  getAuthor(authorId: number): Promise<Author> {
+    throw new Error('Method not implemented.');
+  }
+
+  getComments(postId: number): Promise<Comment[]> {
+    throw new Error('Method not implemented.');
+  }
+
+  public getPostsUrl(): string {
+    return `${this.apiUrl}/${this.postsSuffix}`;
+  }
+}
+
+const apiUrl: string = 'https://jsonplaceholder.typicode.com';
+
+const postsUrl: string = apiUrl + '/posts';
 const commentsUrl: string = `${apiUrl}/comments`;
-const usersUrl:string = `${apiUrl}/users`;
-
-
+const usersUrl: string = `${apiUrl}/users`;
 
 
 async function setAuthor(authorId: number) :Promise<void> {
