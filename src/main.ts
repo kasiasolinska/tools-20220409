@@ -10,3 +10,23 @@ async function getApiResponse(url :string):Promise<any> {
     const json:any = await response.json();
     return json;
   }
+
+  document.addEventListener("DOMContentLoaded", ():void => {
+    const content = document.querySelector("#content");
+  
+    setTimeout(() :void => {
+      getApiResponse(postsUrl)
+        .then((posts) => {
+          content.innerHTML = "Select post&hellip;";
+  
+          for (const post of posts) {
+            //addListElement(post);
+          }
+        })
+        
+        .finally(():void => {
+          const loader = document.querySelector("#spinner");
+          loader.remove();
+        });
+    }, 2000);
+  });
